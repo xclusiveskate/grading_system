@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grading System</title>
+    <style>
+      body {
+        background-color: lightblue;
+      }
+      #all {
+        box-shadow: inset;
+        text-align: center;
+        height: 50px;
+        font-size: 30px;
+      }
+      input {
+        height: 30px;
+        width: 20em;
+        border-radius: 5px;
+        border: 1px solid blue;
+      }
+
+      button {
+        width: 10em;
+        height: 30px;
+        margin: 20px;
+        border-radius: 5px;
+        border: 1px none green;
+        background-color: rgb(146, 146, 254);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="all">
+      <h1>Your Grading System</h1>
+      <input type="text" name="" id="grade" min="0" max="100" />
+      <div id="result"></div>
+      <br />
+      <button onclick="getResult()">Check Grade</button>
+    </div>
+    <script>
+      function getResult() {
+        let score = parseInt(document.getElementById("grade").value);
+        // result.innerHTML = score;
+        if (isNaN(score)) {
+          result.innerHTML = "Input a valid number";
+        } else {
+          if (score < 0 || score > 100) {
+            result.innerHTML =
+              "invalid input: score cannot be less than zero or greater than 100";
+          } else if (score >= 0 && score < 40) {
+            result.innerHTML = "Grade: F - Fail";
+          } else if (score >= 40 && score < 45) {
+            result.innerHTML = "Grade: E - Poor";
+          } else if (score >= 45 && score < 50) {
+            result.innerHTML = "Grade: D : Fair";
+          } else if (score >= 50 && score < 60) {
+            result.innerHTML = "Grade: C : Good";
+          } else if (score >= 60 && score < 70) {
+            result.innerHTML = "Grade: B : Very Good";
+          } else {
+            result.innerHTML = "Grade: A : Excellent";
+          }
+        }
+        console.log(score == isNaN);
+      }
+    </script>
+  </body>
+</html>
